@@ -21,7 +21,7 @@ var articleOne ={
           This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. 
         </p> 
     `
-}
+};
 
 function createmplate (data){
     var title=data.title;
