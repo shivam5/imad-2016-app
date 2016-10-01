@@ -6,10 +6,11 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne ={ 
+var articles ={
+ 'article-one' :{ 
     title : 'Article One',
     heading: 'Article One',
-    date : '5 Sept, 2016'
+    date : '5 Sept, 2016',
     content : `
             <p>
           This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. 
@@ -21,9 +22,41 @@ var articleOne ={
           This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. 
         </p> 
     `
+},
+
+ 'article-two' :{ 
+    title : 'Article Two',
+    heading: 'Article Two',
+    date : '10 Sept, 2016',
+    content : `
+            <p>
+          This is my second article. This is my second article. This is my second article.This is my second article.This is my second article.This is my second article.
+        </p> 
+            <p>
+          This is my second article. This is my second article. This is my second article.This is my second article.This is my second article.This is my second article.
+        </p> 
+    `
+},
+
+ 'article-three' :{ 
+    title : 'Article Third',
+    heading: 'Article Third',
+    date : '15 Sept, 2016',
+    content : `
+            <p>
+          This is my third article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. 
+        </p> 
+        <p>
+          This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. 
+        </p> 
+        <p>
+          This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. This is my first article. 
+        </p> 
+    `
+}
 };
 
-function createmplate (data){
+function createtemplate (data){
     var title=data.title;
     var heading=data.heading;
     var date=data.date;
@@ -42,7 +75,7 @@ var htmltemplate = `
   <body>
     <div class="container">
         <div>
-          <a href="\">Home</a>
+          <a href='/'>Home</a>
         </div>
         <hr />
           <h3> ${heading} </h3>
@@ -66,16 +99,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function(req, res){
-  res.sendFile(createtemplate(articleOne));
-});
-
-app.get('/article-two', function(req, res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function(req, res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function(req, res){
+	var articleName=req.params.articleName;
+  res.send(createtemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
