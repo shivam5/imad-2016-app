@@ -1,8 +1,8 @@
 //Counter
 
-var button=getElementById("counter");
+var button=document.getElementById("counter");
 
-var count=getElementById("count");
+var count=document.getElementById("count");
 
 var ctr=0;
 
