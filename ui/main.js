@@ -8,5 +8,5 @@ var ctr=0;
 
 button.onclick=function(){
     ctr=ctr+1;
-    count.InnerHtml=ctr;
+    count.InnerHTML=ctr;
 };
