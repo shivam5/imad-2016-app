@@ -12,3 +12,13 @@ button.onclick=function(){
     var span=document.getElementById('count');
     span.innerHTML=counter.toString();
 };
+
+var nameInput=document.getElementById('name');
+
+var name=nameInput.value;
+
+var submit=document.getElementById('submit');
+
+submit.onclick = function (){
+    
+}
