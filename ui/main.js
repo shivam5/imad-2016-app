@@ -1,12 +1,12 @@
 //Counter
 
-var button=document.getElementById("counter");
+var button=document.getElementById('counter');
 
 
-var ctr=0;
+var counter=0;
 
 button.onclick=function(){
-    ctr=ctr+1;
-    var count=document.getElementById("count");
-    count.InnerHTML=ctr.toString();
+    counter=counter+1;
+    var span=document.getElementById('count');
+    span.InnerHTML=counter.toString();
 };
